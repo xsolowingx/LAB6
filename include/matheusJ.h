@@ -1,6 +1,14 @@
+/**
+ * @since 19/11/2017
+ * @file matheusJ.h
+ * @brief arquivo onde contém as definições da biblioteca matheusJ
+ * @author Matheus de Jesus Leandro de Medeiros
+ * @date 24/11/2017
+ */
 #ifndef _MATHEUSJ_H
 #define _MATHEUSJ_H
 #include <ostream>
+#include <iomanip>
 
 namespace geometria
 {
@@ -17,7 +25,7 @@ namespace geometria
 
 		void setArea(float _lado);
 		void setPerimetro(float _lado);
-
+		
 		float getArea();
 		float getPerimetro();
 
@@ -166,6 +174,7 @@ namespace geometria
 
 		friend std::ostream& operator<< (std::ostream &o,Esfera &e);
 	};
+
 }
 
 #endif

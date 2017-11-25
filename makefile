@@ -24,21 +24,19 @@ OBJETO_DYN = $(OBJ_DIR)/mainDYN.o $(OBJ_DIR)/funcoesDYN.o
 #Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
 .PHONY: all clean distclean doxy
 
-#make para linux
+#make para fazer as duas bibliotecas para linux
 linux:	linux_estatico linux_dinamico
 
-#faz o programa para linux com a biblioteca estática
-linux_estatico:	libMatheusJ.a objetos_estaticos
-	$(CC) $(CFLAGS) $(OBJETO_EST) -L$(LIB_DIR) -lMatheusJ -o $(BIN_DIR)/linux/programa_estatico
+#faz a biblioteca estática para linux
+linux_estatico:	libMatheusJ.a 
 
-#faz o programa para linux com a biblioteca dinâmica
-linux_dinamico:	libMatheusJ.so objetos_dinamicos
-	$(CC) $(CFLAGS) $(OBJETO_DYN) -L$(LIB_DIR) -lMatheusJ -o $(BIN_DIR)/linux/programa_dinamico
+#faz a biblioteca dinâmica para linux
+linux_dinamico:	libMatheusJ.so 
 
 #make para fazer tudo
 all: linux windows
 
-#make para windows
+#make para fazer as duas bibliotecas para windows
 windows:	windows_estatico windows_dinamico
 
 #faz o programa para windows com a biblioteca estática
@@ -85,24 +83,6 @@ libMatheusJ.dll:	Target_biblioteca_dinamica
 Target_biblioteca_dinamica:	$(SRC_DIR)/matheusJ.cpp
 	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $(OBJ_DIR)/matheusJDYN.o
 
-#objetos dinâmicos
-objetos_dinamicos: objeto_dinamico1 objeto_dinamico2
-
-objeto_dinamico1:	$(SRC_DIR)/main.cpp
-	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $(OBJ_DIR)/mainDYN.o
-
-objeto_dinamico2:	$(SRC_DIR)/funcoes.cpp
-	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $(OBJ_DIR)/funcoesDYN.o
-
 #target para biblioteca estática
 Target_biblioteca_estatica:	$(SRC_DIR)/matheusJ.cpp
 	$(CC) -c $(CFLAGS) $< -o $(OBJ_DIR)/matheusJEST.o
-
-#objetos estáticos
-objetos_estaticos: objeto_estatico1 objeto_estatico2
-
-objeto_estatico1:	$(SRC_DIR)/main.cpp 
-	$(CC) -c $(CFLAGS) $< -o $(OBJ_DIR)/mainEST.o
-
-objeto_estatico2:	$(SRC_DIR)/funcoes.cpp
-	$(CC) -c $(CFLAGS) $< -o $(OBJ_DIR)/funcoesEST.o

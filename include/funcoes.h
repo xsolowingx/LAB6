@@ -1,6 +1,7 @@
 #ifndef _FUNCOES_H
 #define _FUNCOES_H
 #include <string>
+#include "matheusJ.h"
 
 void opcoes();
 void funcao_triangulo();

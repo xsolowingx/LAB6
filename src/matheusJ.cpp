@@ -1,9 +1,9 @@
 /**
  * @since 19/11/2017
  * @file matheusJ.cpp
- * @brief arquivo onde contém as implementações da library matheusJ
+ * @brief arquivo onde contém as implementações da biblioteca matheusJ
  * @author Matheus de Jesus Leandro de Medeiros
- * @date 22/11/2017
+ * @date 24/11/2017
  * @sa http://objetoseducacionais2.mec.gov.br/bitstream/handle/mec/10483/open/file/geo1202.htm
  */
 
@@ -23,6 +23,8 @@ geometria::Triangulo::Triangulo() {}
 
 geometria::Triangulo::~Triangulo() {}
 
+/*=====Setters=====*/
+
 void geometria::Triangulo::setArea(float _lado)
 {
 	float _altura = (_lado / 2.0) * sqrt(3);
@@ -35,6 +37,8 @@ void geometria::Triangulo::setPerimetro(float _lado)
 	this->perimetro = _lado * 3.0;
 }
 
+/*=====Getters=====*/
+
 float geometria::Triangulo::getArea()
 {
 	return this->area;
@@ -45,7 +49,9 @@ float geometria::Triangulo::getPerimetro()
 	return this->perimetro;
 }
 
-std::ostream& operator<< (std::ostream &o,geometria::Triangulo &t)
+/*=====Sobrecarga do operador de inserção=====*/
+
+std::ostream& operator <<(std::ostream &o,geometria::Triangulo &t)
 {
 	o << std::setprecision(4) << "A area do triangulo e: " << t.getArea() << unidade_medida << "²" << std::endl
 	  << "O perimetro do triangulo e: " << t.getPerimetro() << unidade_medida << std::endl;
@@ -60,6 +66,8 @@ geometria::Retangulo::Retangulo() {}
 
 geometria::Retangulo::~Retangulo() {}
 
+/*=====Setters=====*/
+
 void geometria::Retangulo::setArea(float _base,float _altura)
 {
 	this->area = (_base * _altura) / 2.0;
@@ -70,6 +78,8 @@ void geometria::Retangulo::setPerimetro(float _base,float _altura)
 	this->perimetro = 2 * (_base * _altura);
 }
 
+/*=====Getters=====*/
+
 float geometria::Retangulo::getArea()
 {
 	return this->area;
@@ -79,6 +89,8 @@ float geometria::Retangulo::getPerimetro()
 {
 	return this->perimetro;
 }
+
+/*=====Sobrecarga do operadore de inserção=====*/
 
 std::ostream& operator<< (std::ostream &o,geometria::Retangulo &r)
 {
@@ -95,6 +107,8 @@ geometria::Quadrado::Quadrado() {}
 
 geometria::Quadrado::~Quadrado() {}
 
+/*=====Setters=====*/
+
 void geometria::Quadrado::setArea(float _lado)
 {
 	this->area = pow(_lado,2);
@@ -105,6 +119,8 @@ void geometria::Quadrado::setPerimetro(float _lado)
 	this->perimetro = 4 * _lado;
 }
 
+/*=====Getters=====*/
+
 float geometria::Quadrado::getArea()
 {
 	return this->area;
@@ -114,6 +130,8 @@ float geometria::Quadrado::getPerimetro()
 {
 	return this->perimetro;
 }
+
+/*=====Sobrecarga do operador de inserção=====*/
 
 std::ostream& operator<< (std::ostream &o,geometria::Quadrado &q)
 {
@@ -130,6 +148,8 @@ geometria::Circulo::Circulo() {}
 
 geometria::Circulo::~Circulo() {}
 
+/*=====Setters=====*/
+
 void geometria::Circulo::setArea(float _raio)
 {
 	this->area = PI * pow(_raio,2);
@@ -140,6 +160,8 @@ void geometria::Circulo::setPerimetro(float _raio)
 	this->perimetro = 2 * PI * _raio;
 }
 
+/*=====Getters=====*/
+
 float geometria::Circulo::getArea()
 {
 	return this->area;
@@ -149,6 +171,8 @@ float geometria::Circulo::getPerimetro()
 {
 	return this->perimetro;
 }
+
+/*=====Sobrecarga do operador de inserção=====*/
 
 std::ostream& operator<< (std::ostream &o,geometria::Circulo &c)
 {
@@ -165,6 +189,8 @@ geometria::Piramide::Piramide() {}
 
 geometria::Piramide::~Piramide() {}
 
+/*=====Setters=====*/
+
 void geometria::Piramide::setArea(float _lado_quadrangular)
 {
 	this->area = pow(_lado_quadrangular,2) * (1 + sqrt(3));
@@ -175,6 +201,8 @@ void geometria::Piramide::setVolume(float _lado_quadrangular)
 	this->volume = pow(_lado_quadrangular,3) * (sqrt(2) / 6.0);
 }
 
+/*=====Getters=====*/
+
 float geometria::Piramide::getArea()
 {
 	return this->area;
@@ -184,6 +212,8 @@ float geometria::Piramide::getVolume()
 {
 	return this->volume;
 }
+
+/*=====Sobrecarga do operador de inserção=====*/
 
 std::ostream& operator<< (std::ostream &o,geometria::Piramide &p)
 {
@@ -200,6 +230,8 @@ geometria::Cubo::Cubo() {}
 
 geometria::Cubo::~Cubo() {}
 
+/*=====Setters=====*/
+
 void geometria::Cubo::setArea(float _aresta)
 {
 	this->area = 6 * pow(_aresta,2);
@@ -210,6 +242,8 @@ void geometria::Cubo::setVolume(float _aresta)
 	this->volume = pow(_aresta,3);
 }
 
+/*=====Getters=====*/
+
 float geometria::Cubo::getArea()
 {
 	return this->area;
@@ -219,6 +253,8 @@ float geometria::Cubo::getVolume()
 {
 	return this->volume;
 }
+
+/*=====Sobrecarga do operador de inserção=====*/
 
 std::ostream& operator<< (std::ostream &o,geometria::Cubo &c)
 {
@@ -236,6 +272,8 @@ geometria::Paralelepipedo::Paralelepipedo() {}
 
 geometria::Paralelepipedo::~Paralelepipedo() {}
 
+/*=====Setters=====*/
+
 void geometria::Paralelepipedo::setArea(float _aresta1,float _aresta2,float _aresta3)
 {
 	this->area = (2 * _aresta1 * _aresta2) + (2 * _aresta1 * _aresta3) + (2 * _aresta2 * _aresta3);
@@ -245,6 +283,8 @@ void geometria::Paralelepipedo::setVolume(float _aresta1,float _aresta2,float _a
 {
 	this->volume = _aresta3 * _aresta2 * _aresta1;
 }
+
+/*=====Getters=====*/
 
 float geometria::Paralelepipedo::getArea()
 {
@@ -256,6 +296,8 @@ float geometria::Paralelepipedo::getVolume()
 	return this->volume;
 }
 
+/*=====Sobrecarga do operador de inserção=====*/
+
 std::ostream& operator<< (std::ostream &o,geometria::Paralelepipedo &p)
 {
 	o << std::setprecision(4) << std::fixed << "A area do paralelepipedo e: " << p.getArea() << unidade_medida << "²" << std::endl
@@ -263,13 +305,15 @@ std::ostream& operator<< (std::ostream &o,geometria::Paralelepipedo &p)
 	return o;
 }
 
-/*=====Implementações do=====*/
+/*=====Implementações da Esfera=====*/
 
 geometria::Esfera::Esfera(float _raio): raio(_raio) {}
 
 geometria::Esfera::Esfera() {}
 
 geometria::Esfera::~Esfera() {}
+
+/*=====Setters=====*/
 
 void geometria::Esfera::setArea(float _raio)
 {
@@ -281,6 +325,8 @@ void geometria::Esfera::setVolume(float _raio)
 	this->volume = (4 * PI * pow(_raio,3) ) / 3.0 ;
 }
 
+/*=====Getters=====*/
+
 float geometria::Esfera::getArea()
 {
 	return this->area;
@@ -290,6 +336,8 @@ float geometria::Esfera::getVolume()
 {
 	return this->volume;
 }
+
+/*=====Sobrecarga do operador de inserção=====*/
 
 std::ostream& operator<< (std::ostream &o,geometria::Esfera &e)
 {
